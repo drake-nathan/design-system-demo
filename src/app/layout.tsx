@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "font-varela-round flex min-h-svh flex-col items-center justify-between p-8 antialiased",
+          "flex min-h-svh flex-col items-center justify-between p-8 font-varela-round antialiased",
           varelaRound.variable,
         )}
       >
