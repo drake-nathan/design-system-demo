@@ -12,7 +12,6 @@ const config = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: "./tsconfig.eslint.json",
-    tsconfigRootDir: __dirname,
   },
   plugins: ["@typescript-eslint", "perfectionist", "tailwindcss", "storybook"],
   reportUnusedDisableDirectives: true,
@@ -29,6 +28,7 @@ const config = {
       },
     ],
     "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-empty-object-type": "off",
     "@typescript-eslint/no-import-type-side-effects": "error",
     "@typescript-eslint/no-misused-promises": [
       "error",
@@ -50,6 +50,7 @@ const config = {
     ],
     "no-console": ["warn", { allow: ["info", "warn", "error"] }],
     "perfectionist/sort-imports": ["error", { internalPattern: ["@/**"] }],
+    "tailwindcss/classnames-order": "off",
   },
   settings: {
     tailwindcss: {
