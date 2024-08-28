@@ -5,33 +5,42 @@ import * as React from "react";
 import { cn } from "@/utils/cn";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "ring-offset-background focus-visible:ring-ring inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[0.99] disabled:pointer-events-none disabled:opacity-50",
   {
     defaultVariants: {
-      size: "default",
-      variant: "default",
+      size: "md",
+      variant: "outline",
     },
     variants: {
       size: {
-        default: "h-10 px-4 py-2",
         icon: "size-10",
-        lg: "h-11 rounded-md px-8",
-        sm: "h-9 rounded-md px-3",
+        lg: "h-11 rounded-lg px-8",
+        md: "h-10 px-4 py-2",
+        sm: "h-9 px-3",
       },
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+          "bg-destructive text-destructive-foreground hover:bg-bittersweet-700 active:bg-bittersweet-800",
+        ghost:
+          "hover:bg-accent active:bg-boulder-100 dark:active:bg-boulder-800",
+        link: "text-scooter-500 active:text-scooter-700 dark:text-scooter-400 dark:active:text-scooter-200 px-2 underline-offset-4 hover:underline focus-visible:underline",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          "border-input bg-background hover:bg-accent active:bg-boulder-100 dark:active:bg-boulder-800 border",
+        primary:
+          "bg-primary text-primary-foreground hover:bg-scooter-500 active:bg-scooter-600",
       },
     },
   },
 );
+
+// infer types from the variant definitions
+type ButtonVariantTypes = VariantProps<typeof buttonVariants>;
+// extract the size and variant types
+export type ButtonSize = Exclude<ButtonVariantTypes["size"], null | undefined>;
+export type ButtonVariant = Exclude<
+  ButtonVariantTypes["variant"],
+  null | undefined
+>;
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -39,7 +48,7 @@ export interface ButtonProps
   asChild?: boolean;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ asChild = false, className, size, variant, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
     return (
@@ -52,5 +61,3 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   },
 );
 Button.displayName = "Button";
-
-export { Button, buttonVariants };

@@ -9,6 +9,14 @@ const config = {
     "plugin:tailwindcss/recommended",
     "plugin:storybook/recommended",
   ],
+  overrides: [
+    {
+      files: ["*.stories.@(js|jsx|ts|tsx)"],
+      rules: {
+        "no-empty-pattern": "off",
+      },
+    },
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: "./tsconfig.eslint.json",

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { Providers } from "@/providers";
 import { varelaRound } from "@/styles/fonts";
 import "@/styles/globals.css";
 import { cn } from "@/utils/cn";
@@ -15,14 +16,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           "flex min-h-svh flex-col items-center justify-between p-8 font-varela-round antialiased",
           varelaRound.variable,
         )}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
