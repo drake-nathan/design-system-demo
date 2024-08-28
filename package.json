@@ -6,6 +6,7 @@
   "scripts": {
     "build": "next build",
     "build-storybook": "storybook build",
+    "chromatic": "chromatic",
     "dev": "next dev --turbo",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -44,6 +45,7 @@
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^8.2.0",
     "@typescript-eslint/parser": "^8.2.0",
+    "chromatic": "^11.7.1",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.6",
     "eslint-plugin-perfectionist": "^3.2.0",

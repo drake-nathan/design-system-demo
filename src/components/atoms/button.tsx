@@ -5,7 +5,7 @@ import * as React from "react";
 import { cn } from "@/utils/cn";
 
 const buttonVariants = cva(
-  "ring-offset-background focus-visible:ring-ring inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[0.99] disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:scale-[0.99] disabled:pointer-events-none disabled:opacity-50",
   {
     defaultVariants: {
       size: "md",
@@ -23,9 +23,9 @@ const buttonVariants = cva(
           "bg-destructive text-destructive-foreground hover:bg-bittersweet-700 active:bg-bittersweet-800",
         ghost:
           "hover:bg-accent active:bg-boulder-100 dark:active:bg-boulder-800",
-        link: "text-scooter-500 active:text-scooter-700 dark:text-scooter-400 dark:active:text-scooter-200 px-2 underline-offset-4 hover:underline focus-visible:underline",
+        link: "px-2 text-scooter-500 underline-offset-4 hover:underline focus-visible:underline active:text-scooter-700 dark:text-scooter-400 dark:active:text-scooter-200",
         outline:
-          "border-input bg-background hover:bg-accent active:bg-boulder-100 dark:active:bg-boulder-800 border",
+          "border border-input bg-background hover:bg-accent active:bg-boulder-100 dark:active:bg-boulder-800",
         primary:
           "bg-primary text-primary-foreground hover:bg-scooter-500 active:bg-scooter-600",
       },
